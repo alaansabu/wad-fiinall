@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Profile | Investor Connect</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="./assets/css/profile.css">
+</head>
+<body>
+  <div class="floating-orbs" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <header class="profile-topbar">
+    <div class="brand-group">
+      <div class="brand-icon"><i class="fas fa-compass"></i></div>
+      <div class="brand-text">
+        <span class="brand-title">Investor Connect</span>
+        <span class="brand-tag">Shape your professional identity</span>
+      </div>
+    </div>
+    <a class="ghost-link" href="userprofile.html"><i class="fas fa-arrow-left"></i> Back to profile</a>
+  </header>
+
+  <main class="profile-edit-wrapper">
+    <section class="profile-intro glass-card">
+      <h1><i class="fas fa-user-edit"></i> Update your profile</h1>
+      <p>Complete your details so collaborators instantly understand who you are and how to connect with you.</p>
+    </section>
+
+    <form id="profileForm" class="profile-form glass-card" novalidate>
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="firstName">First name</label>
+          <div class="input-shell">
+            <i class="fas fa-id-badge"></i>
+            <input type="text" id="firstName" name="firstName" pattern="[A-Za-z\s]+" title="Letters only" required placeholder="e.g. Maya">
+          </div>
+          <span class="error-message" id="firstNameError"></span>
+        </div>
+
+        <div class="form-field">
+          <label for="surname">Surname</label>
+          <div class="input-shell">
+            <i class="fas fa-signature"></i>
+            <input type="text" id="surname" name="surname" pattern="[A-Za-z\s]+" title="Letters only" required placeholder="e.g. Varma">
+          </div>
+          <span class="error-message" id="surnameError"></span>
+        </div>
+
+        <div class="form-field">
+          <label for="age">Age</label>
+          <div class="input-shell">
+            <i class="fas fa-star"></i>
+            <input type="number" id="age" name="age" min="18" max="120" required placeholder="28">
+          </div>
+          <span class="error-message" id="ageError"></span>
+        </div>
+
+        <div class="form-field">
+          <label for="dob">Date of birth</label>
+          <div class="input-shell">
+            <i class="fas fa-calendar"></i>
+            <input type="date" id="dob" name="dob" required>
+          </div>
+          <span class="error-message" id="dobError"></span>
+        </div>
+
+        <div class="form-field span-2">
+          <label for="profilePic">Profile photo</label>
+          <div class="upload-shell">
+            <input type="file" id="profilePic" name="profilePicture" accept="image/*" aria-label="Profile picture input">
+            <label for="profilePic" class="upload-trigger"><i class="fas fa-cloud-upload-alt"></i> Upload image</label>
+            <div id="previewWrapper" class="preview-wrapper hidden">
+              <img id="previewPic" src="" alt="Profile preview">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="phone">Phone number</label>
+          <div class="input-shell">
+            <i class="fas fa-phone"></i>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{10,15}" title="Phone number (10-15 digits)" required placeholder="e.g. 08075153674">
+          </div>
+          <span class="error-message" id="phoneError"></span>
+        </div>
+
+        <div class="form-field span-2">
+          <label for="bio">Short bio</label>
+          <div class="input-shell textarea">
+            <i class="fas fa-quote-left"></i>
+            <textarea id="bio" name="bio" rows="3" maxlength="500" placeholder="Tell people what drives you, your expertise or current focus."></textarea>
+          </div>
+          <div class="char-count">
+            <span id="bioCharCount">0</span>/500 characters
+          </div>
+           <span class="error-message" id="bioError"></span>
+        </div>
+      </div>
+
+      <div class="form-footer">
+        <p id="message" role="alert" aria-live="polite"></p>
+        <button type="submit" id="submitBtn" class="primary-btn">
+          <span>Create / Update profile</span>
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </form>
+  </main>
+
+  <script src="./assets/js/profile.js"></script>
+</body>
+</html>

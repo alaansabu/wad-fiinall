@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InvestorConnect - Where Startups Meet Investors</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+    
+    <!-- Floating Particles -->
+    <div class="particles-container"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="brand">
+            <div class="brand-icon">
+                <i class="fas fa-handshake"></i>
+            </div>
+            <div>
+                <div class="logo-text">InvestorConnect</div>
+                <div class="tag">Where startups meet investors</div>
+            </div>
+        </div>
+
+        <button class="hamburger" id="navToggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="nav-links" id="navLinks">
+            <a href="index.html" class="nav-link active">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="about.html" class="nav-link">
+                <i class="fas fa-info-circle"></i>
+                <span>About</span>
+            </a>
+            <a href="userprofile.html" class="nav-link">
+                <i class="fas fa-info-circle"></i>
+                <span>Profile</span>
+            </a>
+            <a href="explore.html" class="nav-link">
+                <i class="fas fa-compass"></i>
+                <span>Explore</span>
+            </a>
+            <a href="chatboat.html" class="nav-link">
+                <i class="fas fa-robot"></i>
+                <span>Chatboat</span>
+            </a>
+            <a href="messages.html" class="nav-link">
+                <i class="fas fa-comments"></i>
+                <span>Messages</span>
+            </a>
+            <a href="addpost.html" class="nav-link accent">
+                <i class="fas fa-plus"></i>
+                <span>Create Pitch</span>
+            </a>
+            <a href="login.html" class="nav-link">
+                <i class="fas fa-sign-in-alt"></i>
+                <span>Login</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    Find the next <span class="accent-text">big startup</span> — fast.
+                </h1>
+                <p class="hero-subtitle">
+                    InvestorConnect helps founders showcase short pitches and find matching investors quickly. 
+                    Browse curated startups, save favorites, and request pitch decks.
+                </p>
+                
+                <div class="cta-buttons">
+                    <a href="explore.html" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        Browse Pitches
+                    </a>
+                    <a href="addpost.html" class="btn btn-secondary">
+                        <i class="fas fa-plus"></i>
+                        Create Pitch
+                    </a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number" data-count="1250">0</div>
+                        <div class="stat-label">Investors</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number" data-count="3420">0</div>
+                        <div class="stat-label">Startups</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number" data-count="892">0</div>
+                        <div class="stat-label">Matches</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="floating-cards">
+                    <div class="card card-1">
+                        <div class="card-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>FinTech Startup</h3>
+                        <p>Revolutionizing digital payments</p>
+                        <div class="card-badge">Featured</div>
+                    </div>
+                    <div class="card card-2">
+                        <div class="card-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>CleanTech</h3>
+                        <p>Sustainable energy solutions</p>
+                        <div class="card-badge">Trending</div>
+                    </div>
+                    <div class="card card-3">
+                        <div class="card-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>AI Platform</h3>
+                        <p>Next-gen machine learning</p>
+                        <div class="card-badge">Hot</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose InvestorConnect?</h2>
+                <p>Our platform is designed to make startup-investor connections seamless and effective</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Lightning Fast</h3>
+                    <p>Discover validated startups in minutes using our advanced filtering and matching algorithms.</p>
+                    <div class="feature-animation">
+                        <div class="pulse-dot"></div>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Secure & Private</h3>
+                    <p>Make connections privately and track all introductions securely in your personal dashboard.</p>
+                    <div class="feature-animation">
+                        <div class="shield-rotate"></div>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Smart Matching</h3>
+                    <p>Our AI-powered system matches you with the most relevant startups or investors based on your criteria.</p>
+                    <div class="feature-animation">
+                        <div class="network-pulse"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Get started in just a few simple steps</p>
+            </div>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Create Your Profile</h3>
+                        <p>Set up your investor or startup profile with detailed information about your interests or business.</p>
+                    </div>
+                    <div class="step-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Browse & Connect</h3>
+                        <p>Explore curated startups or investors and send connection requests with personalized messages.</p>
+                    </div>
+                    <div class="step-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Start Conversations</h3>
+                        <p>Use our secure messaging platform to discuss opportunities and schedule meetings.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Success Stories</h2>
+                <p>See what our users are saying about their experience</p>
+            </div>
+
+            <div class="testimonials-slider">
+                <div class="testimonial active">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p>"InvestorConnect helped us secure our Series A funding in just 3 months. The platform connected us with exactly the right investors who understood our vision."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" alt="Sarah Chen">
+                            </div>
+                            <div class="author-info">
+                                <h4>Sarah Chen</h4>
+                                <p>CEO, TechNova Solutions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p>"As an angel investor, I've found incredible opportunities through InvestorConnect. The quality of startups and the matching algorithm save me countless hours."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" alt="Michael Rodriguez">
+                            </div>
+                            <div class="author-info">
+                                <h4>Michael Rodriguez</h4>
+                                <p>Angel Investor</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p>"The platform's intuitive design and powerful features made it easy to showcase our startup. We received multiple investment offers within weeks of joining."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face" alt="Emily Watson">
+                            </div>
+                            <div class="author-info">
+                                <h4>Emily Watson</h4>
+                                <p>Founder, GreenTech Innovations</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-controls">
+                <button class="control-btn prev-btn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="testimonial-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                <button class="control-btn next-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Investment Journey?</h2>
+                <p>Join thousands of investors and startups already making connections on our platform</p>
+                <div class="cta-buttons">
+                    <a href="login.html" class="btn btn-primary btn-large">
+                        <i class="fas fa-user-plus"></i>
+                        Sign Up Free
+                    </a>
+                    <a href="explore.html" class="btn btn-secondary btn-large">
+                        <i class="fas fa-eye"></i>
+                        Browse Startups
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="brand">
+                        <div class="brand-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div>
+                            <div class="logo-text">InvestorConnect</div>
+                            <div class="tag">Where startups meet investors</div>
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        Connecting innovative startups with visionary investors to build the future together.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="userprofile.html">Profile</a></li>
+                        <li><a href="explore.html">Explore</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="help.html">Help Center</a></li>
+                        <li><a href="guides.html">Investor Guides</a></li>
+                        <li><a href="startup-guides.html">Startup Guides</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>hello@investorconnect.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>San Francisco, CA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    © <span id="year"></span> InvestorConnect. All rights reserved.
+                </div>
+                <div class="footer-built">
+                    Built with <i class="fas fa-heart" style="color: var(--accent);"></i> for innovators
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./assets/js/index.js"></script>
+</body>
+</html>

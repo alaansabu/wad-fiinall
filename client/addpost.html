@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Post | GeoShare</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/AddPost.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="brand">
+            <div class="brand-icon">
+                <i class="fas fa-handshake"></i>
+            </div>
+            <div class="brand-text">
+                <div class="logo-text">GeoShare</div>
+                <div class="tag">Connect & Collaborate</div>
+            </div>
+        </div>
+        
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="explore.html" class="nav-link">
+                <i class="fas fa-compass"></i>
+                <span>Explore</span>
+            </a>
+            <a href="AddPost.html" class="nav-link active accent">
+                <i class="fas fa-plus-circle"></i>
+                <span>Create Post</span>
+            </a>
+            <a href="profile.html" class="nav-link">
+                <i class="fas fa-user"></i>
+                <span>Profile</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="header-section">
+            <h1><i class="fas fa-plus-circle"></i> Create New Post</h1>
+            <p>Share opportunities and connect with others in your area</p>
+        </div>
+
+        <div class="post-creator">
+            <!-- Media Upload Section -->
+            <div class="section">
+                <div class="section-header">
+                    <i class="fas fa-images"></i>
+                    <h3>Media Upload</h3>
+                </div>
+                <div class="media-upload-container">
+                    <div class="upload-area" id="uploadArea">
+                        <div class="upload-content">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <h4>Drop an image or video</h4>
+                            <p>Supports JPG, PNG, GIF (≤5MB) or MP4, WEBM, MOV, AVI, MKV (≤50MB)</p>
+                            <button type="button" class="browse-btn" id="browseBtn">
+                                <i class="fas fa-folder-open"></i> Browse Files
+                            </button>
+                        </div>
+                        <input type="file" id="mediaInput" accept="image/*,video/*" hidden>
+                    </div>
+                    <div class="media-preview" id="mediaPreview"></div>
+                </div>
+            </div>
+
+            <!-- Post Details -->
+            <div class="section">
+                <div class="section-header">
+                    <i class="fas fa-edit"></i>
+                    <h3>Post Details</h3>
+                </div>
+                
+                <div class="form-group">
+                    <label for="postTitle">Opportunity Title</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-heading"></i>
+                        <input type="text" id="postTitle" placeholder="e.g., Business Partnership Opportunity, Looking for Collaborators..." required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="postContent">Description</label>
+                    <div class="textarea-with-icon">
+                        <i class="fas fa-pen"></i>
+                        <textarea id="postContent" placeholder="Describe the opportunity, what you're looking for, requirements, benefits..." rows="5" required></textarea>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Categories</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-tags"></i>
+                            <input type="text" id="categoriesInput" placeholder="Type a category and press Enter (e.g., fintech, health, seed)">
+                        </div>
+                        <div id="categoriesChips" class="chips-container"></div>
+                        <div class="quick-cats">
+                            <button type="button" class="chip-btn" data-cat="business">Business</button>
+                            <button type="button" class="chip-btn" data-cat="collaboration">Collaboration</button>
+                            <button type="button" class="chip-btn" data-cat="investment">Investment</button>
+                            <button type="button" class="chip-btn" data-cat="networking">Networking</button>
+                            <button type="button" class="chip-btn" data-cat="partnership">Partnership</button>
+                            <button type="button" class="chip-btn" data-cat="mentorship">Mentorship</button>
+                            <button type="button" class="chip-btn" data-cat="event">Event</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="postPrivacy">Visibility</label>
+                        <div class="select-with-icon">
+                            <i class="fas fa-globe-americas"></i>
+                            <select id="postPrivacy">
+                                <option value="public">🌐 Public</option>
+                                <option value="friends">👥 Connections Only</option>
+                                <option value="private">🔒 Private</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="postTags">Tags</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-hashtag"></i>
+                        <input type="text" id="postTags" placeholder="Add relevant tags separated by commas (e.g., startup, tech, funding, collaboration)">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Location Section -->
+            <div class="section">
+                <div class="section-header">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Location</h3>
+                </div>
+                
+                <div class="location-instruction">
+                    <i class="fas fa-info-circle"></i>
+                    <p>Search for a location or click on the map to set the position for your opportunity</p>
+                </div>
+                
+                <div class="map-container">
+                    <div id="locationMap"></div>
+                    <div class="map-overlay" id="mapOverlay">
+                        <div class="map-overlay-content">
+                            <div class="map-overlay-spinner"></div>
+                            <h4>Detecting Your Location</h4>
+                            <p>Please allow location access in your browser</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="location-controls">
+                    <button type="button" id="detectLocation" class="location-btn pulse">
+                        <i class="fas fa-crosshairs"></i>
+                        Use My Current Location
+                    </button>
+                    
+                    <div class="coordinates-grid">
+                        <div class="coordinate-input">
+                            <label>Latitude</label>
+                            <input type="text" id="latitude" placeholder="0.000000" readonly>
+                        </div>
+                        <div class="coordinate-input">
+                            <label>Longitude</label>
+                            <input type="text" id="longitude" placeholder="0.000000" readonly>
+                        </div>
+                    </div>
+                    
+                    <div class="accuracy-indicator hidden" id="accuracyIndicator">
+                        <div class="accuracy-dot"></div>
+                        <span class="accuracy-text">High accuracy location detected</span>
+                    </div>
+                    
+                    <div class="location-info-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p id="locationAddress">Search for a location or click on the map to set position</p>
+                    </div>
+
+                    <!-- Hidden input to store place name -->
+                    <input type="hidden" id="placeName">
+                </div>
+            </div>
+
+            <!-- Form Actions -->
+            <div class="form-actions">
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <i class="fas fa-paper-plane"></i>
+                    Publish Opportunity
+                </button>
+                <button type="button" class="cancel-btn" id="cancelBtn">
+                    <i class="fas fa-times"></i>
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay hidden" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <p>Creating your opportunity post...</p>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <script src="./assets/js/AddPost.js"></script>
+</body>
+</html>

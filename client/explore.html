@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GeoShare - Explore Opportunities</title>
+  <link rel="stylesheet" href="./assets/css/explore.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Animated Background -->
+  <div class="animated-bg"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="brand">
+      <div class="brand-icon">
+        <i class="fas fa-handshake"></i>
+      </div>
+      <div class="brand-text">
+        <div class="logo-text">GeoShare</div>
+        <div class="tag">Connect & Collaborate</div>
+      </div>
+    </div>
+    
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+      </a>
+      <a href="explore.html" class="nav-link active">
+        <i class="fas fa-compass"></i>
+        <span>Explore</span>
+      </a>
+      <a href="AddPost.html" class="nav-link accent">
+        <i class="fas fa-plus-circle"></i>
+        <span>Create Post</span>
+      </a>
+      <a href="profile.html" class="nav-link">
+        <i class="fas fa-user"></i>
+        <span>Profile</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="explore-main">
+    <!-- Header Section -->
+    <section class="explore-header">
+      <h1 class="site-title">
+        <i class="fas fa-globe-americas"></i>
+        Explore Opportunities
+      </h1>
+      <p class="header-subtitle">Discover connections and collaborations in your area</p>
+      
+      <!-- Simple Filters -->
+      <div class="filters-container">
+        <div class="filter-group">
+          <div class="input-with-icon">
+            <i class="fas fa-map-marker-alt"></i>
+            <input type="text" id="locationFilter" placeholder="Search location...">
+          </div>
+        </div>
+        
+        <div class="filter-group">
+          <div class="input-with-icon">
+            <i class="fas fa-tags"></i>
+            <input type="text" id="categoryFilter" placeholder="Categories (comma-separated, e.g., fintech, health)">
+          </div>
+        </div>
+        
+        <button class="filter-btn primary" id="applyFilters">
+          <i class="fas fa-search"></i>
+          Search
+        </button>
+        
+        <button class="filter-btn secondary" id="clearFilters">
+          <i class="fas fa-times"></i>
+          Clear
+        </button>
+      </div>
+    </section>
+
+    <!-- Posts Grid -->
+    <section class="posts-section">
+      <!-- Loading State -->
+      <div class="loading-section" id="loadingSection">
+        <div class="loading-spinner"></div>
+        <p>Loading opportunities...</p>
+      </div>
+
+      <!-- Posts Container -->
+      <div class="posts-container" id="postsContainer">
+        <!-- Posts will be dynamically loaded here -->
+      </div>
+
+      <!-- Load More Button -->
+      <div class="load-more-container">
+        <button class="load-more-btn" id="loadMoreBtn">
+          <i class="fas fa-sync-alt"></i>
+          Load More
+        </button>
+      </div>
+
+      <!-- No Results -->
+      <div class="no-results hidden" id="noResults">
+        <i class="fas fa-search"></i>
+        <h3>No opportunities found</h3>
+        <p>Try adjusting your filters or <a href="AddPost.html">create the first post</a></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Meeting Request Modal -->
+  <div class="modal hidden" id="meetingModal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3><i class="fas fa-calendar-check"></i> Request Meeting</h3>
+        <button class="close-modal" id="closeMeetingModal" aria-label="Close meeting modal" title="Close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="meetingForm">
+          <div class="form-group">
+            <label for="meetingDate">Preferred Date</label>
+            <input type="date" id="meetingDate" required>
+          </div>
+          <div class="form-group">
+            <label for="meetingTime">Preferred Time</label>
+            <input type="time" id="meetingTime" required>
+          </div>
+          <div class="form-group">
+            <label for="meetingMessage">Message</label>
+            <textarea id="meetingMessage" placeholder="Briefly describe what you'd like to discuss..." rows="4" required></textarea>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn-primary">
+              <i class="fas fa-paper-plane"></i>
+              Send Request
+            </button>
+            <button type="button" class="btn-secondary" id="cancelMeeting">
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Comments Modal -->
+  <div class="modal hidden" id="commentsModal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3><i class="fas fa-comments"></i> Comments</h3>
+        <button class="close-modal" id="closeCommentsModal" aria-label="Close comments modal" title="Close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="comments-list" id="commentsList">
+          <!-- Comments will be loaded here -->
+        </div>
+        <div class="add-comment">
+          <textarea id="commentText" placeholder="Add a comment..." rows="3"></textarea>
+          <button class="btn-primary" id="submitComment">
+            <i class="fas fa-paper-plane"></i>
+            Post Comment
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./assets/js/explore.js"></script>
+</body>
+</html>

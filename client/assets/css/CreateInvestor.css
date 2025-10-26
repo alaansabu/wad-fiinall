@@ -1,0 +1,8 @@
+/* moved investor-user-profile.css */
+body{font-family:Arial, sans-serif;margin:0;padding:0;background:linear-gradient(135deg,#0D1B2A,#1B263B);color:#fff}
+.profile-card{background:rgba(255,255,255,0.05);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-radius:20px;padding:30px;width:400px;box-shadow:0 0 20px rgba(0,255,255,0.3)}
+.glow-text{font-size:1.8rem;margin-bottom:20px;text-shadow:0 0 10px #00e0ff}
+.input-group{margin-bottom:15px;text-align:left}
+.input-group input{width:100%;padding:10px;border-radius:8px;border:none;background:rgba(255,255,255,0.1);color:#fff}
+.btn{background:#00e0ff;color:#0D1B2A;border:none;padding:10px 18px;border-radius:8px}
+.hidden{display:none}

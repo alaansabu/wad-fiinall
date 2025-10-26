@@ -1,0 +1,13 @@
+/* Investor styles moved from client/investor.css */
+* { box-sizing: border-box; }
+body { font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #0D1B2A, #1B263B); margin:0;}
+.profile-container { width:100%; max-width:460px; padding:20px; }
+.profile-card { background: rgba(13,27,42,0.85); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-radius:18px; padding:25px; text-align:center; border:1px solid #1B263B; box-shadow:0 0 25px rgba(0,149,246,0.2); transition:all .3s }
+.profile-card:hover { transform: translateY(-5px); box-shadow:0 0 35px rgba(0,149,246,0.5) }
+.profile-card h2{ color:#f0f0f0 }
+.input-group{ margin-bottom:18px; text-align:left }
+.input-group label{ color:#d3d8e0; margin-bottom:6px; display:block }
+.input-group input, .input-group select { width:100%; padding:10px; border:none; border-radius:10px; background:#1B263B; color:white }
+button{ background:#0095f6; color:white; padding:10px 15px; border:none; border-radius:12px; cursor:pointer }
+button:hover{ background:#0077cc }
+.hidden{ display:none }

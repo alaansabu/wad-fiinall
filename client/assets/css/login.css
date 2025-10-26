@@ -1,0 +1,263 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0D1B2A; /* Navy */
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  color: #FFFFFF;
+}
+
+/* Welcome Header */
+.welcome-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.welcome-header h1 {
+  font-size: 50px;
+  color: #FFFFFF;
+  margin-bottom: 10px;
+}
+
+.welcome-header p {
+  color: #B0C4DE; /* Soft white-blue */
+  font-size: 18px;
+}
+
+/* Large Login Box */
+.login-container {
+  background: #0A1622; /* Dark navy */
+  padding: 40px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
+}
+
+.login-container h1, .login-container h2 {
+  font-size: 30px;
+  color: #FFFFFF;
+  margin-bottom: 30px;
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 16px;
+  margin: 12px 0;
+  border: 1px solid #B0C4DE;
+  border-radius: 6px;
+  background: #0D1B2A;
+  color: #FFFFFF;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  box-shadow: 0 0 8px rgba(0, 224, 255, 0.6);
+  border-color: #00e0ff;
+  outline: none;
+}
+
+/* Login Button */
+button[type="submit"] {
+  background: #00e0ff;
+  color: #0D1B2A;
+  padding: 16px;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background: #00bcd4;
+  box-shadow: 0 0 10px rgba(0, 224, 255, 0.5);
+}
+
+/* Links */
+.links {
+  margin-top: 18px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.links a {
+  text-decoration: none;
+  color: #B0C4DE;
+  font-size: 15px;
+  transition: color 0.3s ease;
+}
+
+.links a:hover {
+  color: #00e0ff;
+  text-decoration: underline;
+}
+
+.link-button {
+  background: none;
+  border: none;
+  color: #B0C4DE;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.3s ease;
+}
+
+.link-button:hover {
+  color: #00e0ff;
+  text-decoration: underline;
+}
+
+.sign_up, .reload {
+  cursor: pointer;
+  color: #B0C4DE;
+  transition: color 0.3s ease;
+}
+
+.sign_up:hover, .reload:hover {
+  color: #00e0ff;
+  text-decoration: underline;
+}
+
+/* OTP Section */
+.otp-section {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  background: rgba(13, 27, 42, 0.7);
+}
+
+.otp-section h3 {
+  margin: 10px 0 15px;
+  font-size: 18px;
+  color: #B0C4DE;
+}
+
+#otpInput {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #B0C4DE;
+  border-radius: 5px;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-align: center;
+  background: #0A1622;
+  color: #FFFFFF;
+}
+
+.otp-section button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  background: #00e0ff;
+  color: #0D1B2A;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.otp-section button[type="submit"]:hover {
+  background: #00bcd4;
+}
+
+#otpMessage {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  min-height: 20px;
+}
+
+.resend-btn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  background: transparent;
+  color: #00e0ff;
+  border: 1px solid #00e0ff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.resend-btn:hover {
+  background: #00e0ff;
+  color: #0D1B2A;
+}
+
+.secondary-btn {
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px;
+  background: rgba(0, 224, 255, 0.1);
+  color: #00e0ff;
+  border: 1px solid #00e0ff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.secondary-btn:hover {
+  background: #00e0ff;
+  color: #0D1B2A;
+}
+
+.info-message {
+  min-height: 20px;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #B0C4DE;
+}
+
+/* Utility Classes */
+.hidden {
+  display: none;
+}
+
+.success {
+  color: #00ff00;
+}
+
+.error {
+  color: #ff0000;
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+  .login-container {
+    padding: 30px 20px;
+  }
+  
+  .welcome-header h1 {
+    font-size: 36px;
+  }
+  
+  .links {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+}

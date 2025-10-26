@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome - Login</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/login.css" />
+</head>
+<body>
+  <header class="welcome-header">
+    <h1>Welcome</h1>
+    <p>Sign in to your account or create a new one</p>
+  </header>
+
+  <div class="login-container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input type="email" id="loginEmail" placeholder="Email" required>
+      <input type="password" id="loginPassword" placeholder="Password" required>
+      <button type="submit">Login</button>
+      <div class="links">
+        <p class="sign_up">Signup</p>
+        <button type="button" id="forgotPasswordLink" class="link-button">Forgot Password?</button>
+      </div>
+    </form>
+
+    <div id="forgotPasswordSection" class="otp-section hidden">
+      <h3>Reset Password</h3>
+      <form id="forgotPasswordForm">
+        <input type="email" id="forgotEmail" placeholder="Enter your registered email" required>
+        <button type="submit">Send OTP</button>
+      </form>
+      <p id="forgotPasswordMessage" class="info-message"></p>
+      <button type="button" id="backToLoginBtn" class="secondary-btn">Back to Login</button>
+    </div>
+
+    <div id="resetOtpSection" class="otp-section hidden">
+      <h3>Verify OTP</h3>
+      <form id="resetOtpForm">
+        <input type="text" id="resetOtpInput" placeholder="Enter OTP" maxlength="6" required>
+        <button type="submit">Verify OTP</button>
+      </form>
+      <p id="resetOtpMessage" class="info-message"></p>
+      <button type="button" id="resendResetOtpBtn" class="resend-btn">Resend OTP</button>
+    </div>
+
+    <div id="resetPasswordSection" class="otp-section hidden">
+      <h3>Set New Password</h3>
+      <form id="resetPasswordForm">
+        <input type="password" id="newPassword" placeholder="New Password" required>
+        <input type="password" id="confirmNewPassword" placeholder="Confirm New Password" required>
+        <button type="submit">Update Password</button>
+      </form>
+      <p id="resetPasswordMessage" class="info-message"></p>
+    </div>
+  </div>
+
+  <script src="./assets/js/login.js"></script>
+</body>
+</html>
