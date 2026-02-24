@@ -7,14 +7,61 @@ const JWT_SECRET = process.env.JWT_SECRET || 'fallbacksecret';
 
 require('dotenv').config();
 
-// Nodemailer transporter
-const transport = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.EMAIL_ADRESS,
-    pass: process.env.EMAIL_PASS
+// Nodemailer transporter - uses Ethereal for testing if Gmail credentials fail
+let transport;
+
+const setupTransporter = async () => {
+  // Try Gmail first if credentials exist
+  if (process.env.EMAIL_ADDRESS && process.env.EMAIL_PASS) {
+    transport = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.EMAIL_ADDRESS,
+        pass: process.env.EMAIL_PASS
+      }
+    });
+    
+    // Verify connection
+    try {
+      await transport.verify();
+      console.log('✅ Gmail transporter ready');
+      return;
+    } catch (err) {
+      console.log('⚠️ Gmail auth failed, falling back to Ethereal test account');
+    }
   }
-});
+  
+  // Fallback to Ethereal test account
+  const testAccount = await nodemailer.createTestAccount();
+  transport = nodemailer.createTransport({
+    host: 'smtp.ethereal.email',
+    port: 587,
+    secure: false,
+    auth: {
+      user: testAccount.user,
+      pass: testAccount.pass
+    }
+  });
+  console.log('✅ Using Ethereal test email account');
+  console.log('📧 Test emails will be viewable at: https://ethereal.email');
+  console.log('   Login: ' + testAccount.user);
+};
+
+// Initialize transporter
+setupTransporter();
+
+// Helper to send email and get preview URL for Ethereal
+const sendEmail = async (mailOptions) => {
+  if (!transport) await setupTransporter();
+  const info = await transport.sendMail(mailOptions);
+  
+  // If using Ethereal, log the preview URL
+  const previewUrl = nodemailer.getTestMessageUrl(info);
+  if (previewUrl) {
+    console.log('📧 Preview OTP email at: ' + previewUrl);
+  }
+  return info;
+};
 
 // Generate 6-digit OTP
 const generateOtp = () => crypto.randomInt(100000, 999999).toString();
@@ -40,17 +87,24 @@ exports.register = async (req, res) => {
     const otp = generateOtp();
     const otpExpiry = new Date(Date.now() + 10 * 60 * 1000); // 10 min
 
+    // Try to send email FIRST before saving user
+    try {
+      await sendEmail({
+        from: process.env.EMAIL_ADDRESS || 'noreply@investorconnect.com',
+        to: email,
+        subject: "Your OTP for Investor Connect",
+        text: `Your OTP is ${otp}. It will expire in 10 minutes.`
+      });
+    } catch (emailError) {
+      console.error("Email sending failed:", emailError);
+      return res.status(500).json({ message: "Failed to send OTP email. Please try again later." });
+    }
+
+    // Only save user after email is sent successfully
     user = new User({ name, email, password, confirmPassword, otp, otpExpiry, isVerified: false });
     await user.save();
 
-    await transport.sendMail({
-      from: "selfflearning@gmail.com",
-      to: email,
-      subject: "Your OTP",
-      text: `Your OTP is ${otp}`
-    });
-
-    res.status(200).json({ message: "OTP sent successfully" });
+    res.status(200).json({ message: "OTP sent successfully. Check your email or console for preview link." });
 
   } catch (error) {
     console.error(error);
